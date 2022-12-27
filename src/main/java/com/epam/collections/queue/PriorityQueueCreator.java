@@ -9,24 +9,12 @@ public class PriorityQueueCreator {
         PriorityQueue<String> queue = new PriorityQueue<>(new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
-                if (o2.compareTo(o1) <= 0){
-                    return -1;
-                }else {
-                    return 1;
-                }
+                return -1 * o1.compareTo(o2);
             }
         });
 
-        for (String s : firstList) {
-            if (queue.contains(s)){
-                queue.add(s);
-            }
-        }
-        for (String s : secondList) {
-            if (queue.contains(s)){
-                queue.add(s);
-            }
-        }
+        queue.addAll(firstList);
+        queue.addAll(secondList);
 
         return queue;
     }
